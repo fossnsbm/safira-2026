@@ -8,7 +8,13 @@
   },
   "devDependencies": {
     "@netlify/functions": "^2.0.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "netlify-cli": "^17.0.0",
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "firebase": "^12.10.0",
+    "firebase-admin": "^13.7.0"
   }
 }

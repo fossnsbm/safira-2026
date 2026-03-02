@@ -1,4 +1,5 @@
-import './.css';
+import '../../styles/sections.css';
+import { ParticlesBackground } from '../ui/ParticlesBackground';
 
 export const Home: React.FC = () => {
   const handleScrollToRegistration = () => {
@@ -7,6 +8,12 @@ export const Home: React.FC = () => {
   };
 
   return (
-    
+    <div className="home-section">
+      <ParticlesBackground />
+      <h1>Welcome to Safira '26</h1>
+      <button onClick={handleScrollToRegistration}>
+        Register Now
+      </button>
+    </div>
   );
 };
