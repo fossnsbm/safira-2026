@@ -1,14 +1,7 @@
-import { Home } from './components/sections/Home';
-import { Registration } from './components/sections/Registration';
-import './styles/sections.css';
+import { Home } from "./components/sections/Home";
 
-const App = () => {
-  return (
-    <>
-      <Home />
-      <Registration />
-    </>
-  );
-};
+function App() {
+  return <Home />;
+}
 
 export default App;

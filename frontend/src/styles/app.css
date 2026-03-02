@@ -1,5 +1,6 @@
-import "../../styles/app.css";
-import bg from "../../assets/sbg.png";
+import "../../styles/sections.css";
+import bg from "../../assets/sbg.png"; // ✅ here we changed to sbg.png
+
 export const Home = () => {
   return (
     <div
