@@ -1,13 +1,16 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Home } from './components/sections/Home';
 import Registration from './components/sections/Registration';
 import './styles/sections.css';
 
 const App = () => {
   return (
-    <>
-      <Home />
-      <Registration />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/registration" element={<Registration />} />
+      </Routes>
+    </Router>
   );
 };
 

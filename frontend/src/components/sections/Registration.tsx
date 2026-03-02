@@ -1,9 +1,11 @@
 import type { FC } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/registration.css";
 import { ParticlesBackground } from "../ui/ParticlesBackground";
 import { useState, FormEvent } from "react";
 
 const Register: FC = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -62,6 +64,12 @@ const Register: FC = () => {
   return (
     <div className="register-page">
       <ParticlesBackground />
+      <button 
+        className="back-btn" 
+        onClick={() => navigate('/')}
+      >
+        ← Back
+      </button>
       <div className="form-card">
         <h1 className="form-title">Register for Safira</h1>
 

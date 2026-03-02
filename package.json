@@ -4,12 +4,15 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "netlify dev",
-    "build": "cd frontend && npm run build"
+    "dev:frontend": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "preview": "cd frontend && npm run preview"
   },
   "devDependencies": {
     "@netlify/functions": "^2.0.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "dotenv": "^17.3.1",
     "netlify-cli": "^17.0.0",
     "typescript": "^5.0.0"
   },

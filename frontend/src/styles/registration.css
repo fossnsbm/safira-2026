@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap');
 
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* Reset */
 * {
   margin: 0;
@@ -24,6 +34,7 @@ html, body, #root {
   align-items: center;
   justify-content: center;
   padding: 20px;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
 /* Glass Card */
@@ -42,6 +53,34 @@ html, body, #root {
   text-align: center;
   position: relative;
   overflow: hidden;
+}
+
+/* Back Button */
+.back-btn {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  padding: 12px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateX(-4px);
+}
+
+.back-btn:active {
+  transform: translateX(-2px);
 }
 
 .form-card::before {
@@ -166,8 +205,43 @@ form input:hover:not(:focus) {
   transform: translateY(0);
 }
 
+/* Back Button */
+.back-btn {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(-5px);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
 /* Responsive */
 @media (max-width: 600px) {
+  .back-btn {
+    top: 20px;
+    left: 20px;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+
   .form-card {
     padding: 40px 24px;
     border-radius: 20px;
