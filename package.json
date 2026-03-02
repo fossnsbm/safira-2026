@@ -3,12 +3,13 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "dev": "netlify dev",
-    "build": "cd frontend && npm run build"
+    "dev": "node init && netlify dev",
+    "build": "node init && cd frontend && npm run build"
   },
   "devDependencies": {
     "@netlify/functions": "^2.0.0",
     "netlify-cli": "^17.0.0",
+    "node-fetch": "^3.3.2",
     "typescript": "^5.0.0"
   }
 }
