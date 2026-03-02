@@ -1,19 +1,28 @@
-import '../../styles/sections.css';
-import { ParticlesBackground } from '../ui/ParticlesBackground';
-
-export const Home: React.FC = () => {
-  const handleScrollToRegistration = () => {
-    const el = document.getElementById('registration');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
+import "../../styles/app.css";
+import bg from "../../assets/sbg.png";
+export const Home = () => {
   return (
-    <div className="home-section">
-      <ParticlesBackground />
-      <h1>Welcome to Safira '26</h1>
-      <button onClick={handleScrollToRegistration}>
-        Register Now
-      </button>
+    <div
+      className="home-container"
+      style={{ backgroundImage: `url(${bg})` }}
+    >
+      <div className="overlay"></div>
+
+      <div className="content">
+        <h1 className="title">SAFIRA'26</h1>
+
+        <p className="tagline">
+          Empowered women empower the future —<br />
+          by breaking barriers
+        </p>
+
+        <button className="register-btn">Registration</button>
+
+        <div className="logos">
+          <span>FOSS</span>
+          <span>WOMEN IN FOSS</span>
+        </div>
+      </div>
     </div>
   );
 };
