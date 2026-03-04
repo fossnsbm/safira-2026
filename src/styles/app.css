@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumar+One&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.home-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  animation: fadeIn 0.8s ease-in-out;
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  z-index: 1;
+}
+
+/* Animated gradient overlay */
+.overlay::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 0, 204, 0.15) 0%,
+    transparent 70%
+  );
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  max-width: 600px;
+  z-index: 3;
+  text-align: center;
+  padding: 40px 40px 20px 40px;
+  padding-top: 60px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  animation: fadeIn 1s ease-out;
+}
+
+.title {
+  font-size: 72px;
+  font-weight: 400;
+  letter-spacing: 6px;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  font-family: 'Kumar One', cursive;
+  color: white;
+  filter: drop-shadow(0 0 30px rgba(255, 0, 204, 0.5));
+  animation: float 4s ease-in-out infinite;
+  text-shadow: 0 0 20px rgba(255, 0, 204, 0.8);
+}
+
+.tagline {
+  font-size: 18px;
+  color: #f0f0f0;
+  margin-bottom: 40px;
+  line-height: 1.8;
+  font-weight: 300;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.register-btn {
+  padding: 16px 50px;
+  border-radius: 16px;
+  border: none;
+  background: linear-gradient(135deg, #ec068c,#84006a);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 4px 20px rgba(255, 0, 204, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.register-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.register-btn:hover::before {
+  left: 100%;
+}
+
+.register-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 
+    0 8px 30px rgba(255, 0, 204, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.register-btn:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.logos {
+  margin-top: 60px;
+  display: flex;
+  gap: 24px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  opacity: 0.9;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.logo-image {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.3));
+  transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.05);
+}
+
+/* Home wrapper for all sections */
+.home-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #05000b;
+}
+
+/* Hero Responsive Styles */
+@media (max-width: 768px) {
+  .home-container {
+    background-attachment: scroll;
+    padding: 20px;
+  }
+
+  .content {
+    max-width: 90%;
+    padding: 30px 24px 20px;
+    border-radius: 20px;
+  }
+
+  .title {
+    font-size: 42px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+  }
+
+  .tagline {
+    font-size: 15px;
+    margin-bottom: 30px;
+    line-height: 1.7;
+  }
+
+  .register-btn {
+    padding: 14px 36px;
+    font-size: 14px;
+  }
+
+  .logos {
+    margin-top: 40px;
+    gap: 16px;
+  }
+
+  .logo-image {
+    height: 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 24px 18px 16px;
+    border-radius: 16px;
+  }
+
+  .title {
+    font-size: 32px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .tagline {
+    font-size: 14px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  .register-btn {
+    padding: 12px 28px;
+    font-size: 13px;
+    border-radius: 12px;
+  }
+
+  .logos {
+    margin-top: 30px;
+    gap: 12px;
+  }
+
+  .logo-image {
+    height: 30px;
+  }
+}
