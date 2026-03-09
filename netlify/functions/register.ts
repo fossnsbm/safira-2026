@@ -23,10 +23,21 @@ const validateEmail = (email: string): boolean => email.toLowerCase().endsWith('
 const validateContactNo = (contact: string): boolean => /^0\d{9}$/.test(contact);
 
 export default async (req: Request, _context: Context) => {
+  const headers = { "Content-Type": "application/json" }
+  const isRegistrationDisabled = !JSON.parse(process.env.VITE_REGISTRATION_ENABLED || 'true')
+
+  console.log(isRegistrationDisabled)
+
+  if (isRegistrationDisabled) {
+    return new Response(JSON.stringify({ message: "Registration has been disabled" }), {
+      status: 400,
+      headers
+    })
+  }
+
   const data = await req.json()
 
   const { fullName, email, batch, studentId, contactNo } = data
-  const headers = { "Content-Type": "application/json" }
 
   if (!fullName || !email || !batch || !studentId || !contactNo) {
     return new Response(JSON.stringify({ message: "All fields are required" }), {

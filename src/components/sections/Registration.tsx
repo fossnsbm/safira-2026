@@ -20,6 +20,9 @@ const validateContactNo = (contact: string): boolean => /^0\d{9}$/.test(contact)
 export default function Register() {
   const navigate = useNavigate();
   const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+  const isRegistrationDisabled = !JSON.parse(import.meta.env.VITE_REGISTRATION_ENABLED || 'true')
+
+  console.log(isRegistrationDisabled)
 
   function Submit() {
     const { pending } = useFormStatus()
@@ -107,50 +110,53 @@ export default function Register() {
       </button>
       <div className="form-card">
         <h1 className="form-title">Register for Safira</h1>
+        {isRegistrationDisabled && <span className="reg-disable-notice">Registration has been disabled</span>}
 
-        <form action={submitForm}>
-          <input
-            type="text"
-            name="fullName"
-            placeholder="Full Name"
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Student Email (e.g. name@students.nsbm.ac.lk)"
-            pattern=".+@students\.nsbm\.ac\.lk$"
-            title="Please use your NSBM student email"
-            required
-          />
-          <input
-            type="text"
-            name="batch"
-            placeholder="Batch (e.g. 24.1)"
-            pattern="\d{2}\.[1-3]"
-            title="Format: 24.1, 23.2, 25.3"
-            required
-          />
-          <input
-            type="text"
-            name="studentId"
-            placeholder="Student ID (5 digits)"
-            pattern="\d{5}"
-            title="Student ID must be exactly 5 digits"
-            maxLength={5}
-            required
-          />
-          <input
-            type="tel"
-            name="contactNo"
-            placeholder="Contact No (e.g. 0714445234)"
-            pattern="0\d{9}"
-            title="10 digits starting with 0"
-            maxLength={10}
-            required
-          />
-          <Submit />
-        </form>
+        <fieldset disabled={isRegistrationDisabled}>
+          <form action={submitForm}>
+            <input
+              type="text"
+              name="fullName"
+              placeholder="Full Name"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Student Email (e.g. name@students.nsbm.ac.lk)"
+              pattern=".+@students\.nsbm\.ac\.lk$"
+              title="Please use your NSBM student email"
+              required
+            />
+            <input
+              type="text"
+              name="batch"
+              placeholder="Batch (e.g. 24.1)"
+              pattern="\d{2}\.[1-3]"
+              title="Format: 24.1, 23.2, 25.3"
+              required
+            />
+            <input
+              type="text"
+              name="studentId"
+              placeholder="Student ID (5 digits)"
+              pattern="\d{5}"
+              title="Student ID must be exactly 5 digits"
+              maxLength={5}
+              required
+            />
+            <input
+              type="tel"
+              name="contactNo"
+              placeholder="Contact No (e.g. 0714445234)"
+              pattern="0\d{9}"
+              title="10 digits starting with 0"
+              maxLength={10}
+              required
+            />
+            <Submit />
+          </form>
+        </fieldset>
 
         {message && (
           <div style={{
